@@ -1,0 +1,32 @@
+.fa {
+  color: white;
+}
+
+.fa-sign-out {
+  color: black !important;
+}
+div#exp-navbar {
+  justify-content: space-between !important;
+}
+.dropdown-menu.show {
+  right: 5px;
+}
+.profilename {
+  font-weight: bold;
+}
+.active {
+  color: white !important;
+  font-weight: bold;
+  background-color: #ed735f91;
+  height: 40px;
+  border-radius: 20px 20px 0px 0px;
+}
+.activea {
+  color: white !important;
+  font-weight: bold;
+  background-color: #ed735f91;
+  height: 40px;
+}
+.navbar {
+  padding-bottom: 0px;
+}

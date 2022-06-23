@@ -1,0 +1,137 @@
+<div class="create-user">
+  <form [formGroup]="article" (ngSubmit)="onSubmit()">
+    <fieldset class="border p-2">
+      <legend class="float-none w-auto px-2">Create Article</legend>
+      <div class="row profile">
+        <div class="col-3">
+          <label for="uname1">Source Id: </label><br />
+          <input
+            id="uname1"
+            type="text"
+            class="col-12"
+            placeholder="Enter Source Id"
+            formControlName="sourceid"
+          />
+        </div>
+        <div class="col-3">
+          <label for="uname2">Source Name: </label><br />
+          <input
+            id="uname2"
+            type="text"
+            class="col-12"
+            placeholder="Enter Source Name"
+            formControlName="sourcename"
+          />
+        </div>
+        <div class="col-3">
+          <label for="uname3">Author Name: </label><br />
+          <input
+            id="uname3"
+            type="text"
+            class="col-12"
+            placeholder="Enter Author Name"
+            formControlName="author"
+          />
+          <span
+            class="error"
+            *ngIf="submitted && article.get('ImageUrl')?.hasError('required')"
+            >Article Author Required</span
+          >
+        </div>
+      </div>
+      <div class="row profile">
+        <div class="col-3">
+          <label for="uname4">Article Title: </label><br />
+          <input
+            id="uname4"
+            type="text"
+            class="col-12"
+            placeholder="Enter Article Title"
+            formControlName="title"
+          />
+          <span
+            class="error"
+            *ngIf="submitted && article.get('title')?.hasError('required')"
+            >Article Title Required</span
+          >
+        </div>
+        <div class="col-3">
+          <label for="uname5">Article Source URL: </label><br />
+          <input
+            id="uname5"
+            type="text"
+            class="col-12"
+            placeholder="Enter Article Source URL"
+            formControlName="url"
+          />
+          <span
+            class="error"
+            *ngIf="submitted && article.get('url')?.hasError('required')"
+            >Article ERL Required</span
+          >
+        </div>
+        <div class="col-3">
+          <label for="uname6">Article Image URL: </label><br />
+          <input
+            id="uname6"
+            type="text"
+            class="col-12"
+            placeholder="Enter Article Image URL"
+            formControlName="ImageUrl"
+          />
+          <span
+            class="error"
+            *ngIf="submitted && article.get('ImageUrl')?.hasError('required')"
+            >Article ImageUrl Required</span
+          >
+        </div>
+      </div>
+      <div class="row profile">
+        <div class="col-2">
+          <label for="uname7">Article Published Date: </label><br />
+          <input
+            id="uname7"
+            type="date"
+            class="col-12"
+            formControlName="publishedDate"
+          />
+        </div>
+        <div class="col-4">
+          <label for="uname8">Article Description: </label><br />
+          <textarea
+            id="uname8"
+            type="text"
+            class="col-12"
+            placeholder="Write Article Description Here..."
+            formControlName="dec"
+            rows="5"
+          ></textarea>
+          <span
+            class="error"
+            *ngIf="submitted && article.get('ImageUrl')?.hasError('required')"
+            >Article Description Required</span
+          >
+        </div>
+        <div class="col-4">
+          <label for="uname9">Article Content: </label><br />
+          <textarea
+            id="uname9"
+            type="text"
+            class="col-12"
+            rows="5"
+            placeholder="Write Article Content Here..."
+            formControlName="content"
+          ></textarea>
+          <span
+            class="error"
+            *ngIf="submitted && article.get('ImageUrl')?.hasError('required')"
+            >Article Content Required</span
+          >
+        </div>
+      </div>
+      <div class="text-center profile">
+        <input type="submit" class="btn btn-primary" value="Create Article" />
+      </div>
+    </fieldset>
+  </form>
+</div>

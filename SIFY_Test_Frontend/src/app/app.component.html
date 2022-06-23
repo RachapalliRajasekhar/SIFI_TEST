@@ -1,0 +1,78 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-primary"
+  id="navbar"
+  *ngIf="this.userservice.isLogedIn()"
+>
+  <div class="collapse navbar-collapse" id="exp-navbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          style="color: aliceblue"
+          >Dashbord</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/bookmark"
+          routerLinkActive="active"
+          style="color: aliceblue"
+          >Bookmark</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="create" routerLinkActive="active"
+          >Create Article</a
+        >
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0" style="padding-right: 5%">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fa fa-user"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <b class="dropdown-item profilename"
+              ><u>{{
+                userProfile.firstName + ". " + userProfile.lastName
+              }}</u></b
+            >
+            <a
+              class="dropdown-item"
+              routerLink="/profile"
+              routerLinkActive="activea"
+            >
+              View Profile</a
+            >
+            <a class="dropdown-item" (click)="signOut()">
+              <i class="fa fa-sign-out">Log Out</i></a
+            >
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer
+  class="footer bg-primary fixed-bottom"
+  id="footer"
+  *ngIf="this.userservice.isLogedIn()"
+>
+  <div class="container text-center text-white">
+    &copy; Sample MEAN app by Raja | SampleApp 2020
+  </div>
+</footer>

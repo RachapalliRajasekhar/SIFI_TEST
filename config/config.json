@@ -1,0 +1,12 @@
+{
+    "development": {
+        "MONGODB_URI": "mongodb://localhost:27017/SIFY_Test_Task",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2000m"
+    },
+    "production": {
+        "MONGODB_URI": "",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2m"
+    }
+}

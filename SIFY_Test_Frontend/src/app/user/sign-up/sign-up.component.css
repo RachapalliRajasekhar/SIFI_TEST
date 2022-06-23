@@ -1,0 +1,36 @@
+label {
+    font-weight: bold;
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+    color: #ff3d3d !important;
+}
+
+.loginform {
+    background-image: url('https://t4.ftcdn.net/jpg/01/19/11/55/360_F_119115529_mEnw3lGpLdlDkfLgRcVSbFRuVl6sMDty.jpg');
+    width: 35%;
+    margin: auto;
+    margin-top: 60px;
+    padding: 50px 0px;
+    border-radius: 5px;
+}
+
+.nav-link {
+    cursor: pointer;
+    color: #ff3d3d !important;
+    width: fit-content;
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+}
+
+.lick-container {
+    display: flex;
+    justify-content: center;
+}
+
+.alert-label {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10%;
+    padding: 0px 7px;
+}

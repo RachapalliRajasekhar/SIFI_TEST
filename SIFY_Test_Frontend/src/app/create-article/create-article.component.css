@@ -1,0 +1,25 @@
+.create-user {
+  width: 95%;
+  margin: 10px auto;
+}
+.border {
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+.profile {
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+input {
+  border-radius: 10px;
+  height: 40px;
+}
+textarea {
+  border-radius: 10px;
+}
+.btn {
+  font-weight: bold;
+}
+.error {
+  color: red;
+}

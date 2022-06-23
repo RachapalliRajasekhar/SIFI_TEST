@@ -1,0 +1,60 @@
+<div>
+  <form
+    class="loginform text-center"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="user"
+  >
+    <label>
+      Email Address:<br />
+      <input
+        type="text"
+        formControlName="email"
+        placeholder="Enter User Email Address"
+      />
+      <br />
+      <span
+        class="error"
+        *ngIf="submitted && user.get('email')?.hasError('required')"
+        >Email Required</span
+      ><br />
+      <span
+        class="error"
+        *ngIf="user.get('email')?.invalid && user.get('email')?.touched"
+        >Invalid Email Address</span
+      >
+    </label>
+    <br />
+    <label>
+      Password:<br />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter password"
+      /><br />
+      <span
+        class="error"
+        *ngIf="submitted && user.get('password')?.hasError('required')"
+        >Password Required</span
+      >
+    </label>
+    <div class="lick-container">
+      <a class="nav-link" (click)="signUp()"
+        >If you want to register Click Here</a
+      >
+    </div>
+    <div
+      class="alert alert-danger alert-label"
+      role="alert"
+      *ngIf="errorMessage"
+    >
+      {{ errorMessage }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <input class="btn btn-danger" type="submit" value="Login In" />
+  </form>
+</div>

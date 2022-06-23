@@ -1,0 +1,177 @@
+<div class="create-user">
+  <!-- View Profile Start -->
+  <fieldset class="border p-2" *ngIf="editprofile">
+    <legend class="float-none w-auto px-2">View Profile</legend>
+    <div class="edit" (click)="edit()">edit <i class="fa fa-edit"></i></div>
+    <div class="row profile">
+      <div class="col-6">
+        <img
+          *ngIf="mask"
+          class="img"
+          src="../../assets/images/{{ user.profilePic }}"
+        />
+        <i *ngIf="!mask" style="font-size: 185px" class="fa fa-user"></i>
+        <div class="img mask" *ngIf="mask">
+          <i class="fa fa-trash" (click)="deleteProfilepic()"></i>
+        </div>
+      </div>
+      <div class="col-6 profile-content">
+        <p><b>First Name: </b>{{ user.firstName }}</p>
+        <p><b>Last Name: </b>{{ user.lastName }}</p>
+        <p><b>Email: </b>{{ user.email }}</p>
+      </div>
+    </div>
+  </fieldset>
+  <!-- View Profile End -->
+
+  <!-- Edit Profile Start-->
+  <form [formGroup]="Profile" (ngSubmit)="onSubmit()" *ngIf="!editprofile">
+    <fieldset class="border p-2">
+      <!-- Image Drag and Drop Start-->
+      <legend class="float-none w-auto px-2">
+        Edit Profile or Add Profile Picture
+      </legend>
+      <div class="image-drag-drop-crop">
+        <label
+          class="uploader"
+          ondragover="return false;"
+          [class.loaded]="loaded"
+          [style.outlineColor]="dragging ? activeColor : baseColor"
+          (dragenter)="handleDragEnter()"
+          (dragleave)="handleDragLeave()"
+          (drop)="handleDrop($event)"
+        >
+          <i
+            class="fa fa-upload"
+            style="font-size: 30px"
+            *ngIf="!croppedImage"
+            [style.color]="
+              dragging
+                ? imageSrc.length > 0
+                  ? overlayColor
+                  : activeColor
+                : imageSrc.length > 0
+                ? overlayColor
+                : baseColor
+            "
+          >
+            Drag or Drop Profile Picture Here...</i
+          >
+
+          <img
+            [src]="imageSrc"
+            (load)="handleImageLoad()"
+            [class.loaded]="imageLoaded"
+          />
+
+          <input
+            type="file"
+            name="file"
+            accept="image/*"
+            formControlName="file"
+            (change)="handleInputChange($event)"
+            (change)="fileChangeEvent($event)"
+          /> </label
+        ><br />
+        <span
+          class="error"
+          *ngIf="submitted && Profile.get('file')?.hasError('required')"
+          >File Required</span
+        >
+        <!-- Image Drag and Drop End-->
+
+        <!--Image Cropper Start  -->
+        <div class="crop-container row">
+          <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="false"
+            [resizeToWidth]="0"
+            format="png"
+            (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imageLoadeda()"
+            (loadImageFailed)="imageLoadFailed()"
+            style="max-height: 300px; width: 50%"
+            [style.display]="cropperReady ? null : 'none'"
+            class="col-6"
+          ></image-cropper>
+          <img
+            [src]="croppedImage"
+            style="height: 300px; width: 300px"
+            class="col-6"
+            *ngIf="croppedImage"
+          />
+        </div>
+      </div>
+      <!--Image Cropper End  -->
+      <div class="row profile">
+        <div class="col-4">
+          <label for="uname1">First Name: </label><br />
+          <input
+            id="uname1"
+            type="text"
+            class="col-12"
+            placeholder="Enter First Name"
+            formControlName="firstName"
+          />
+          <span
+            class="error"
+            *ngIf="submitted && Profile.get('firstName')?.hasError('required')"
+            >First Name Required</span
+          >
+        </div>
+        <div class="col-4">
+          <label for="uname2">Last Name: </label><br />
+          <input
+            id="uname2"
+            type="text"
+            class="col-12"
+            placeholder="Enter Last Name"
+            formControlName="lastName"
+          />
+          <span
+            class="error"
+            *ngIf="submitted && Profile.get('lastName')?.hasError('required')"
+            >Last Name Required</span
+          >
+        </div>
+        <div class="col-4">
+          <label for="uname3">Email Id: </label><br />
+          <input
+            id="uname3"
+            type="text"
+            class="col-12"
+            placeholder="Enter Email"
+            formControlName="email"
+          />
+          <span
+            class="error"
+            *ngIf="submitted && Profile.get('email')?.hasError('required')"
+            >Email Required</span
+          ><br />
+          <span
+            class="error"
+            *ngIf="
+              Profile.get('email')?.invalid && Profile.get('email')?.touched
+            "
+            >Invalid Email Address</span
+          >
+        </div>
+      </div>
+      <div class="text-center" style="margin-bottom: 40px">
+        <input
+          type="button"
+          style="margin-right: 10px"
+          class="btn btn-outline-dark"
+          value="cancle"
+          (click)="cancle()"
+        />
+        <input
+          type="submit"
+          class="btn btn-primary"
+          style="margin-left: 10px"
+          value="Update Profile"
+        />
+      </div>
+    </fieldset>
+  </form>
+</div>

@@ -1,0 +1,98 @@
+<div>
+  <form
+    class="loginform text-center"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="user"
+  >
+    <label>
+      First Name:<br />
+      <input
+        type="text"
+        formControlName="firstName"
+        placeholder="Enter First Name"
+      /><br />
+      <span
+        class="error"
+        *ngIf="submitted && user.get('firstName')?.hasError('required')"
+        >First Name Required</span
+      >
+    </label>
+    <br />
+    <label>
+      Last Name:<br />
+      <input
+        type="text"
+        formControlName="lastName"
+        placeholder="Enter Last Name"
+      /><br />
+      <span
+        class="error"
+        *ngIf="submitted && user.get('lastName')?.hasError('required')"
+        >Last Name Required</span
+      >
+    </label>
+    <br />
+    <label>
+      Email Address:<br />
+      <input
+        type="text"
+        placeholder="Enter User Email"
+        formControlName="email"
+      />
+      <br />
+      <span
+        class="error"
+        *ngIf="submitted && user.get('email')?.hasError('required')"
+        >Email Required</span
+      ><br />
+      <span
+        class="error"
+        *ngIf="user.get('email')?.invalid && user.get('email')?.touched"
+        >Invalid Email Address</span
+      >
+    </label>
+    <br />
+    <label>
+      Password:<br />
+      <input
+        type="password"
+        placeholder="Enter password"
+        formControlName="password"
+      />
+      <br />
+      <span
+        class="error"
+        *ngIf="
+          user.get('password')?.hasError('minlength') &&
+          user.get('password')?.touched
+        "
+        >Password length Shuld be min 4</span
+      >
+      <br />
+      <span
+        class="error"
+        *ngIf="submitted && user.get('password')?.hasError('required')"
+        >Password Required</span
+      >
+    </label>
+    <div class="lick-container">
+      <a class="nav-link" (click)="signin()"
+        >If you are already Registered Plese Click here to login</a
+      >
+    </div>
+    <div
+      class="alert alert-danger alert-label"
+      role="alert"
+      *ngIf="errorMessage"
+    >
+      {{ errorMessage }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <input class="btn btn-danger" type="submit" value="Sign Up" />
+  </form>
+</div>

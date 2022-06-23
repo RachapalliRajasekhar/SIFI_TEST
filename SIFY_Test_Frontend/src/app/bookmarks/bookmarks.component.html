@@ -1,0 +1,32 @@
+<div
+  *ngFor="let article of articles; let i = index"
+  class="article-card-container"
+>
+  <div class="article-card">
+    <a href="{{ article.url }}">
+      <img class="article-image" [src]="article.urlToImage"
+    /></a>
+    <div class="article-content-container">
+      <div class="article-content">
+        <a href="{{ article.url }}" style="text-decoration: none">
+          <h4>{{ article.title }}</h4></a
+        >
+        <a
+          href="{{ article.url }}"
+          style="text-decoration: none; color: black; font-weight: bold"
+          ><p [innerHTML]="article.content"></p
+        ></a>
+        <a href="{{ article.url }}" style="text-decoration: none; color: black">
+          <p [innerHTML]="article.description"></p
+        ></a>
+      </div>
+      <div class="article-details row">
+        <p class="col-6"><b>Author: </b>{{ article.author }}</p>
+        <p class="col-6"><b>Published Date: </b>{{ article.publishedAt }}</p>
+      </div>
+      <div class="article-details row">
+        <p class="col-6"><b>Source: </b>{{ article.source.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

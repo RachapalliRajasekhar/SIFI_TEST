@@ -1,6 +1,6 @@
 <h1>Steps for Test Task</h1>
 <ul>
-  <li>Step1: <img src="images/1.png" height="200px" width="50%" /></li>
+  <li>Step1: <img src="/images/1.png" height="200px" width="50%" /></li>
   <li>Step2: <img src="images/2.png" height="200px" width="50%" /></li>
   <li>Step3: <img src="images/3.png" height="200px" width="50%" /></li>
   <li>Step4: <img src="images/4.png" height="200px" width="50%" /></li>
